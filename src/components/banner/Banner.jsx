@@ -1,0 +1,74 @@
+import Slider1 from '../../assets/slider-1.jpg'
+import Slider2 from '../../assets/slider-2.jpg'
+import Slider3 from '../../assets/slider-3.jpg'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"
+const Banner = () => {
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        nextArrow: <></>,
+        prevArrow: <></>
+    };
+    return (
+        <div>
+            <Slider {...settings}>
+                <div className='relative w-full h-[80vh]'>
+                    <img src={Slider1} className='h-full w-full' alt="" />
+                    <div className='absolute top-0 h-full w-full px-36 flex items-center bg-[#0000003f]'>
+                        <div className='flex-1'>
+                            <div className='text-white  bg-[#0000006c] p-20 rounded-2xl space-y-5'>
+                                <h1 className='text-5xl font-handlee font-extrabold'>Your Gateway to the Digital World</h1>
+                                <p className='text-2xl'>Explore the latest in technology and electronics to stay ahead in this digital age.</p>
+                            </div>
+                        </div>
+                        <div className='flex-1 text-center'>
+                            <button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className='relative w-full h-[80vh]'>
+                    <img src={Slider2} className='h-full w-full' alt="" />
+                    <div className='absolute top-0 h-full w-full px-36 flex items-center bg-[#0000003f]'>
+                        <div className='flex-1'>
+                            <div className='text-white  bg-[#0000006c] p-20 rounded-2xl space-y-5'>
+                                <h1 className='text-5xl font-handlee font-extrabold'>Electrify Your Life with the Latest Gadgets</h1>
+                                <p className='text-2xl'>Find excitement in everyday life with the most up-to-date electronics and gadgets.</p>
+                            </div>
+                        </div>
+                        <div className='flex-1 text-center'>
+                            <button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div className='relative w-full h-[80vh]'>
+                    <img src={Slider3} className='h-full w-full' alt="" />
+                    <div className='absolute top-0 h-full w-full px-36 flex items-center bg-[#0000003f]'>
+                        <div className='flex-1'>
+                            <div className='text-white  bg-[#0000006c] p-20 rounded-2xl space-y-5'>
+                                <h1 className='text-5xl font-handlee font-extrabold'>Explore the Future of Electronics</h1>
+                                <p className='text-2xl'>Dive into the world of tomorrow's electronics and innovations right now.</p>
+                            </div>
+                        </div>
+                        <div className='flex-1 text-center'>
+                            <button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button>
+                        </div>
+                    </div>
+                </div>
+            </Slider>
+        </div>
+    );
+};
+
+export default Banner;
