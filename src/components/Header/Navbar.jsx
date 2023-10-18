@@ -9,8 +9,9 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addProduct'>Add product</NavLink></li>
-        <li><NavLink to='/allproducts'>All products</NavLink></li>
-        <li><NavLink to='/Brands'>Brands</NavLink></li>
+        <li><NavLink to='/featuredProducts'>Featured products</NavLink></li>
+        <li><NavLink to='/brands'>Brands</NavLink></li>
+        <li><NavLink to='/aboutUs'>About us</NavLink></li>
         <li><NavLink to='/contact'>Contact us</NavLink></li>
     </>
     return (

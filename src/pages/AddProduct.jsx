@@ -14,7 +14,7 @@ const AddProduct = () => {
         console.log(productName, brandName, productImg, productType, price, rating, description)
     }
     return (
-        <div className=" md:my-11 lg:my-24 text-2xl font-semibold space-y-7 p-4">
+        <div className=" md:my-11 lg:my-24 text-2xl font-semibold space-y-7 ">
             <h1 className="text-5xl font-handlee font-semibold text-center ">Create Account</h1>
             <p className="text-center">Creating an account lets you track your order history and store addresses for fast and easy checkouts.</p>
             <div className="lg:p-0">
