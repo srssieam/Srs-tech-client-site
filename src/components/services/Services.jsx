@@ -38,7 +38,7 @@ const Services = () => {
                 </div>
                 <div>
                     <h3 className='font-semibold'>EXTENDED SUPPORT PERIOD</h3>
-                    <p>Flexible delivery dates</p>
+                    <p>30 days return policy</p>
                 </div>
             </div>
             

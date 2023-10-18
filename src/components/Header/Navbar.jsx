@@ -26,8 +26,8 @@ const Navbar = () => {
                         <button className='text-xl px-4 rounded-r-xl py-[10px] bg-[#218171] hover:bg-[#22554c] text-white border-2 border-[#218171] border-l-0'><FaSearch></FaSearch></button>
                     </div>
                     <div className="  text-white text-sm md:text-base font-handlee">
-                        <button className="p-1 md:p-2 rounded-xl border-2 border-[#218171] rounded-r-none  hover:text-cyan-300">Sign in</button>
-                        <button className="p-1 md:p-2 rounded-xl border-2 border-[#218171] rounded-l-none  hover:text-cyan-300">Create Account</button>
+                        <NavLink><button className="p-1 md:p-2 rounded-xl border-2 border-[#218171] rounded-r-none  hover:text-cyan-300">Sign in</button></NavLink>
+                        <NavLink to='/createAccount'><button className="p-1 md:p-2 rounded-xl border-2 border-[#218171] rounded-l-none  hover:text-cyan-300">Create Account</button></NavLink>
                     </div>
                 </div>
 
