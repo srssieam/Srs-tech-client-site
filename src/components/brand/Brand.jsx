@@ -7,7 +7,7 @@ import sony from '../../assets/sony.png'
 
 const Brand = () => {
     return (
-        <div className="md:my-11 lg:my-24 p-4">
+        <div className="md:my-11 lg:my-24 p-4 md:p-0 max-w-[1320px] mx-auto">
             <h1 className="text-5xl font-handlee font-semibold text-center ">Our Trusted Brands</h1>
             <div className='flex flex-wrap justify-center gap-7 mt-12'>
                 <div className="border-2 border-[#218171] w-[320px] text-center p-6 transition hover:scale-110 cursor-pointer">

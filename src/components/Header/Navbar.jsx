@@ -11,7 +11,7 @@ const Navbar = () => {
         <li><NavLink to='/addProduct'>Add product</NavLink></li>
         <li><NavLink to='/featuredProducts'>Featured products</NavLink></li>
         <li><NavLink to='/brands'>Brands</NavLink></li>
-        <li><NavLink to='/aboutUs'>About us</NavLink></li>
+        <li><NavLink to='/about'>About us</NavLink></li>
         <li><NavLink to='/contact'>Contact us</NavLink></li>
     </>
     return (

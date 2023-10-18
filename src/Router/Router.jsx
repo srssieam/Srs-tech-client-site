@@ -5,6 +5,7 @@ import CreateAccount from "../pages/CreateAccount";
 import SignIn from "../pages/SignIn";
 import AddProduct from "../pages/AddProduct";
 import Brand from "../components/brand/Brand";
+import About from "../pages/About";
 
 
 const Router = createBrowserRouter([
@@ -31,6 +32,10 @@ const Router = createBrowserRouter([
             {
                 path:'/brands',
                 element:<Brand></Brand>
+            },
+            {
+                path:'/about',
+                element:<About></About>
             }
         ]
     }
