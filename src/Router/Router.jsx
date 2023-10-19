@@ -7,6 +7,7 @@ import AddProduct from "../pages/AddProduct";
 import Brand from "../components/brand/Brand";
 import About from "../pages/About";
 import Contact from "../components/Contact/Contact";
+import Products from "../components/Products/Products";
 
 
 const Router = createBrowserRouter([
@@ -41,6 +42,10 @@ const Router = createBrowserRouter([
             {
                 path:'/contact',
                 element:<Contact></Contact>
+            },
+            {
+                path:'/featuredProducts',
+                element:<Products></Products>
             }
         ]
     }
