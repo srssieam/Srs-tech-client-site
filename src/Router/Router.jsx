@@ -8,6 +8,8 @@ import Brand from "../components/brand/Brand";
 import About from "../pages/About";
 import Contact from "../components/Contact/Contact";
 import Products from "../components/Products/Products";
+import ProductDetails from "../components/Products/ProductDetails";
+import Cart from "../pages/Cart";
 
 
 const Router = createBrowserRouter([
@@ -46,6 +48,16 @@ const Router = createBrowserRouter([
             {
                 path:'/featuredProducts',
                 element:<Products></Products>
+            },
+            {
+                path:'/product-details/:id',
+                element:<ProductDetails></ProductDetails>,
+                loader:()=>fetch('http://127.0.0.1:9000/products')
+            },
+            {
+                path:'/cart',
+                element:<Cart></Cart>,
+                loader:()=>fetch('http://127.0.0.1:9000/cart')
             }
         ]
     }
