@@ -11,7 +11,20 @@ const AddProduct = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
+
         console.log(productName, brandName, productImg, productType, price, rating, description)
+        const newProduct = { productName, brandName, productImg, productType, price, rating, description }
+
+        fetch('http://127.0.0.1:9000/products', {
+            method:'POST',
+            body:JSON.stringify(newProduct),
+            headers: {
+                'Content-type' : 'application/json',
+            },
+        })
+            .then(res=>res.json())
+            .then(data => console.log(data))
+
     }
     return (
         <div className=" md:my-11 lg:my-24 text-2xl font-semibold space-y-7 ">
