@@ -1,6 +1,6 @@
 import apple from '../../assets/apple.png'
 import samsung from '../../assets/samsung.png'
-import microsoft from '../../assets/microsoft.png'
+import walton from '../../assets/walton.jpg'
 import lg from '../../assets/lg.png'
 import dell from '../../assets/dell.png'
 import sony from '../../assets/sony.png'
@@ -23,9 +23,9 @@ const Brand = () => {
                     </div>
                 </div>
                 <div className="border-2 border-[#218171] w-[320px] text-center p-6 transition hover:scale-110 cursor-pointer">
-                    <img src={microsoft} alt="" className='w-[200px] h-[120px] mx-auto'/>
+                    <img src={walton} alt="" className='w-[200px] h-[120px] mx-auto'/>
                     <div>
-                        <h3 className='text-2xl font-semibold my-5'>Microsoft</h3>
+                        <h3 className='text-2xl font-semibold my-5'>Walton</h3>
                     </div>
                 </div>
                 <div className="border-2 border-[#218171] w-[320px] text-center p-6 transition hover:scale-110 cursor-pointer">

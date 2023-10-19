@@ -71,6 +71,7 @@ const AddProduct = () => {
                             <option value="Select type" disabled>Select Product type</option>
                             <option value="Smartphone">Smartphone</option>
                             <option value="iPhone">iPhone</option>
+                            <option value="ipad">ipad</option>
                             <option value="Computer">Computer</option>
                             <option value="Laptop">Laptop</option>
                             <option value="Tablet">Tablet</option>
@@ -83,6 +84,8 @@ const AddProduct = () => {
                             <option value="Router">Router</option>
                             <option value="Air Conditioner">Air Conditioner</option>
                             <option value="Microwave Oven">Microwave Oven</option>
+                            <option value="Washing machine">Washing machine</option>
+                            <option value="Fridge">Fridge</option>
                         </select>
                     </div>
 
