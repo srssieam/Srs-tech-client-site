@@ -1,7 +1,8 @@
+import Swal from "sweetalert2";
 
 
 const AddProduct = () => {
-    const handleAddProduct = e=>{
+    const handleAddProduct = e => {
         e.preventDefault();
         const form = e.target;
         const productName = form.productName.value;
@@ -16,14 +17,24 @@ const AddProduct = () => {
         const newProduct = { productName, brandName, productImg, productType, price, rating, description }
 
         fetch('http://127.0.0.1:9000/products', {
-            method:'POST',
-            body:JSON.stringify(newProduct),
+            method: 'POST',
+            body: JSON.stringify(newProduct),
             headers: {
-                'Content-type' : 'application/json',
+                'Content-type': 'application/json',
             },
         })
-            .then(res=>res.json())
-            .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.insertedId);
+                if (data.insertedId) {
+                    Swal.fire(
+                        'Good job!',
+                        'Coffee added successfully',
+                        'success'
+                    )
+                    form.reset();
+                }
+            })
 
     }
     return (
@@ -48,7 +59,7 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Product image</span>
                         </label>
-                        <input type="text" name="productImg" placeholder="Enter product image url" className="input border border-[#218171]"  required/>
+                        <input type="text" name="productImg" placeholder="Enter product image url" className="input border border-[#218171]" required />
                     </div>
 
 
