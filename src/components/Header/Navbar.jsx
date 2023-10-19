@@ -20,15 +20,15 @@ const Navbar = () => {
                 {/* top nav */}
                 <div className="flex justify-between items-center py-4 px-4">
                     <div className="">
-                        <img src={logo} className=' w-20  md:w-36' alt="" />
+                        <img src={logo} className='w-24  md:w-36' alt="" />
                     </div>
                     <div className=' hidden md:visible md:flex items-center'>
                         <input className='px-2 py-2 outline-none rounded-xl rounded-r-none border-2 border-[#218171] border-r-0 w-[300px]' type="text" name="" id="" placeholder='Search' />
                         <button className='text-xl px-4 rounded-r-xl py-[10px] bg-[#218171] hover:bg-[#22554c] text-white border-2 border-[#218171] border-l-0'><FaSearch></FaSearch></button>
                     </div>
-                    <div className="  text-white text-sm md:text-base font-handlee">
-                        <NavLink to='/signIn'><button className="p-1 md:p-2 rounded-xl border-2 border-[#218171] rounded-r-none  hover:text-cyan-300">Sign in</button></NavLink>
-                        <NavLink to='/createAccount'><button className="p-1 md:p-2 rounded-xl border-2 border-[#218171] rounded-l-none  hover:text-cyan-300">Create Account</button></NavLink>
+                    <div className="  text-white text-base font-handlee">
+                        <NavLink to='/signIn'><button className="px-1 md:px-2  border-r-2 border-r-[#218171] rounded-r-none  hover:text-cyan-300">Sign in</button></NavLink>
+                        <NavLink to='/createAccount'><button className="px-1 md:px-2  hover:text-cyan-300">Create Account</button></NavLink>
                     </div>
                 </div>
 
