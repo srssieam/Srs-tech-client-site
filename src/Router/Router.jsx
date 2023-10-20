@@ -18,64 +18,64 @@ import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
     {
-        path:'/',
-        element:<MainLayout></MainLayout>,
-        children:[
+        path: '/',
+        element: <MainLayout></MainLayout>,
+        children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/createAccount',
-                element:<CreateAccount></CreateAccount>
+                path: '/createAccount',
+                element: <CreateAccount></CreateAccount>
             },
             {
-                path:'/signIn',
-                element:<SignIn></SignIn>
+                path: '/signIn',
+                element: <SignIn></SignIn>
             },
             {
-                path:'/addProduct',
-                element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+                path: '/addProduct',
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             },
             {
-                path:'/brands',
-                element:<Brand></Brand>
+                path: '/brands',
+                element: <Brand></Brand>
             },
             {
-                path:'/about',
-                element:<About></About>
+                path: '/about',
+                element: <About></About>
             },
             {
-                path:'/contact',
-                element:<Contact></Contact>
+                path: '/contact',
+                element: <Contact></Contact>
             },
             {
-                path:'/featuredProducts',
-                element:<Products></Products>
+                path: '/featuredProducts',
+                element: <Products></Products>
             },
             {
-                path:'/product-details/:id',
-                element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader:()=>fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products')
+                path: '/product-details/:id',
+                element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+                loader: () => fetch('https://srs-tech-server.vercel.app/products')
             },
             {
-                path:'/cart',
-                element:<PrivateRoute><Cart></Cart></PrivateRoute>,
-                loader:()=>fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/cart')
+                path: '/cart',
+                element: <PrivateRoute><Cart></Cart></PrivateRoute>,
+                loader: () => fetch('https://srs-tech-server.vercel.app/cart')
             },
             {
                 path: '/brandProduct/:brand',
-                element:<BrandProducts></BrandProducts>,
+                element: <BrandProducts></BrandProducts>,
             },
             {
-                path:'/allAddedProducts',
-                element:<AllAddedProducts></AllAddedProducts>,
-                loader:()=>fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products')
+                path: '/allAddedProducts',
+                element: <AllAddedProducts></AllAddedProducts>,
+                loader: () => fetch('https://srs-tech-server.vercel.app/products')
             },
             {
-                path:'/editProducts/:id',
-                element:<EditProduct></EditProduct>,
-                loader:({params})=>fetch(`https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products/${params.id}`) 
+                path: '/editProducts/:id',
+                element: <EditProduct></EditProduct>,
+                loader: ({ params }) => fetch(`https://srs-tech-server.vercel.app/products/${params.id}`)
             }
         ]
     }

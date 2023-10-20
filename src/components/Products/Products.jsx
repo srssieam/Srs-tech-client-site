@@ -4,7 +4,7 @@ import ProductCard from "./productCard";
 const Products = () => {
     const [loadedProducts, setLoadedProducts] = useState([]);
     useEffect(() => {
-        fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products')
+        fetch('https://srs-tech-server.vercel.app/products')
             .then(res => res.json())
             .then(data => {
                 console.log(data);

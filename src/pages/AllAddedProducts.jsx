@@ -25,7 +25,7 @@ const AllAddedProducts = () => {
         }).then((result) => {
             console.log(result.isConfirmed);
             if (result.isConfirmed) {
-                fetch(`https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products/${_id}`, {
+                fetch(`https://srs-tech-server.vercel.app/products/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
