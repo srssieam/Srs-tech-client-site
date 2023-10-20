@@ -13,6 +13,7 @@ import Cart from "../pages/Cart";
 import BrandProducts from "../components/brand/BrandProducts";
 import AllAddedProducts from "../pages/AllAddedProducts";
 import EditProduct from "../pages/EditProduct";
+import PrivateRoute from "./PrivateRoute";
 
 
 const Router = createBrowserRouter([
@@ -34,7 +35,7 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/addProduct',
-                element:<AddProduct></AddProduct>
+                element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             },
             {
                 path:'/brands',
@@ -54,12 +55,12 @@ const Router = createBrowserRouter([
             },
             {
                 path:'/product-details/:id',
-                element:<ProductDetails></ProductDetails>,
+                element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
                 loader:()=>fetch('http://127.0.0.1:9000/products')
             },
             {
                 path:'/cart',
-                element:<Cart></Cart>,
+                element:<PrivateRoute><Cart></Cart></PrivateRoute>,
                 loader:()=>fetch('http://127.0.0.1:9000/cart')
             },
             {
