@@ -13,9 +13,11 @@ const MainLayout = () => {
 
     return (
         <div>
-                <Navbar></Navbar>
+            <Navbar></Navbar>
+            <div className="min-h-[80vh]">
                 <Outlet></Outlet>
-                <Footer></Footer>
+            </div>
+            <Footer></Footer>
 
         </div>
     );
