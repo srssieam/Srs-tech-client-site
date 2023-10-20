@@ -71,7 +71,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/allAddedProducts',
-                element: <AllAddedProducts></AllAddedProducts>,
+                element: <PrivateRoute><AllAddedProducts></AllAddedProducts></PrivateRoute>,
                 loader: () => fetch('https://srs-tech-server.vercel.app/products')
             },
             {
