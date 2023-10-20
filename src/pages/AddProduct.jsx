@@ -29,7 +29,7 @@ const AddProduct = () => {
                 if (data.insertedId) {
                     Swal.fire(
                         'Good job!',
-                        'Coffee added successfully',
+                        'Product added successfully',
                         'success'
                     )
                     form.reset();

@@ -14,12 +14,14 @@ import BrandProducts from "../components/brand/BrandProducts";
 import AllAddedProducts from "../pages/AllAddedProducts";
 import EditProduct from "../pages/EditProduct";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 
 const Router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
