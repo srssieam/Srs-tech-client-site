@@ -1,9 +1,13 @@
+
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const CreateAccount = () => {
+    const { createUser, userInfo } = useContext(AuthContext);
 
-    const handleCreateAccount=e=>{
+    const handleCreateAccount = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -11,6 +15,16 @@ const CreateAccount = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
+
+
+        createUser(email, password)
+            .then(res => {
+                console.log(res.user)
+                userInfo(name, photo)
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
     return (
         <div className=" md:my-11 lg:my-24 text-2xl font-semibold space-y-7 p-4">
