@@ -6,15 +6,17 @@ import { useEffect } from "react";
 
 const MainLayout = () => {
     const location = useLocation();
-    useEffect(()=>{
+    useEffect(() => {
         document.title = location.pathname;
-        document.title = `SrsTech ${location.pathname.replace("/","-")}`;
-    },[location.pathname])
+        document.title = `SrsTech ${location.pathname.replace("/", "-")}`;
+    }, [location.pathname])
+
     return (
         <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+                <Navbar></Navbar>
+                <Outlet></Outlet>
+                <Footer></Footer>
+
         </div>
     );
 };

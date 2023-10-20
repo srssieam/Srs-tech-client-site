@@ -3,9 +3,10 @@ import logo from '../../assets/logo.png'
 import './Header.css'
 import { FaSearch } from 'react-icons/fa';
 import { BsCart3 } from 'react-icons/bs';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import defaultUser from '../../assets/defaultUser.jpg';
+
 
 const Navbar = () => {
 
@@ -24,9 +25,25 @@ const Navbar = () => {
         <li><NavLink to='/contact'>Contact us</NavLink></li>
     </>
 
-    const handleSignOut =()=>{
+    const handleSignOut = () => {
         userSignOut();
     }
+
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme"): "light")
+
+    useEffect(()=>{
+        localStorage.setItem("theme", theme);
+        const localTheme = localStorage.getItem("theme");
+        document.querySelector("html").setAttribute("data-theme", localTheme)
+    },[theme])
+
+    const handleTheme = (e) => {
+        if(e.target.checked){
+            setTheme("dark")
+        }else{
+            setTheme("light")
+        }
+    };
 
     return (
         <div className=' bg-blue-950'>
@@ -48,9 +65,9 @@ const Navbar = () => {
                                     <div className="flex flex-col items-center">
                                         {
                                             user.photoURL ? <img src={user.photoURL} className="h-[40px] w-[40px] rounded-full" alt="" />
-                                            : <img src={defaultUser} className="h-[40px] w-[40px] rounded-full" alt="" />
+                                                : <img src={defaultUser} className="h-[40px] w-[40px] rounded-full" alt="" />
                                         }
-                                        
+
                                         {
                                             user.displayName ? <p>{user.displayName}</p> : <p>{user.email.slice(0, 8)}</p>
                                         }
@@ -90,7 +107,7 @@ const Navbar = () => {
                     <div className="navbar-end">
                         <li className=' list-none'><NavLink to='/cart' className='flex mr-4'>Cart<BsCart3 className='text-2xl'></BsCart3></NavLink></li>
                         {/* theme toggler */}
-                        <label className="swap swap-rotate">
+                        <label onClick={handleTheme} className="swap swap-rotate">
                             {/* this hidden checkbox controls the state */}
                             <input type="checkbox" />
                             {/* sun icon */}
