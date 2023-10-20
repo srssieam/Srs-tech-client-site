@@ -1,8 +1,13 @@
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const AddProduct = () => {
-    const handleAddProduct = e => {
+const EditProduct = () => {
+    const findProduct = useLoaderData();
+    const [product, setProduct] = useState(findProduct)
+    const { _id, productName, brandName, productImg, productType, price, rating, description } = product;
+    const handleUpdate = e => {
         e.preventDefault();
         const form = e.target;
         const productName = form.productName.value;
@@ -14,51 +19,52 @@ const AddProduct = () => {
         const description = form.description.value;
 
         console.log(productName, brandName, productImg, productType, price, rating, description)
-        const newProduct = { productName, brandName, productImg, productType, price, rating, description }
+        const updateProduct = { _id, productName, brandName, productImg, productType, price, rating, description }
+        setProduct(updateProduct);
 
-        fetch('http://127.0.0.1:9000/products', {
-            method: 'POST',
-            body: JSON.stringify(newProduct),
+
+        // send this specific data with id to the server to update
+        fetch(`http://127.0.0.1:9000/products/${_id}`, {
+            method: 'PUT',
+            body: JSON.stringify(updateProduct),
             headers: {
                 'Content-type': 'application/json',
             },
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data.insertedId);
-                if (data.insertedId) {
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                if (data.modifiedCount) {
                     Swal.fire(
                         'Good job!',
-                        'Coffee added successfully',
+                        'Product updated successfully',
                         'success'
                     )
-                    form.reset();
                 }
-            })
-
+            });
     }
     return (
         <div className=" md:my-11 lg:my-24 text-2xl font-semibold space-y-7 m-4">
-            <h1 className="text-5xl font-handlee font-semibold text-center ">Add new product</h1>
+            <h1 className="text-5xl font-handlee font-semibold text-center ">Update product</h1>
             <div className="lg:p-0">
-                <form onSubmit={handleAddProduct} className="w-full md:w-3/4 lg:w-1/2 mx-auto space-y-6">
+                <form onSubmit={handleUpdate} className="w-full md:w-3/4 lg:w-1/2 mx-auto space-y-6">
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Product name</span>
                         </label>
-                        <input type="text" name="productName" placeholder="Enter product name" className="input border border-[#218171]" required />
+                        <input type="text" name="productName" placeholder="Enter product name" defaultValue={productName} className="input border border-[#218171]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Brand name</span>
                         </label>
-                        <input type="text" name="brandName" placeholder="Enter brand name" className="input border border-[#218171]" required />
+                        <input type="text" name="brandName" placeholder="Enter brand name" defaultValue={brandName} className="input border border-[#218171]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Product image</span>
                         </label>
-                        <input type="text" name="productImg" placeholder="Enter product image url" className="input border border-[#218171]" required />
+                        <input type="text" name="productImg" placeholder="Enter product image url" defaultValue={productImg} className="input border border-[#218171]" required />
                     </div>
 
 
@@ -66,7 +72,7 @@ const AddProduct = () => {
                         <label htmlFor="productType" className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Select Product Type:</span>
                         </label>
-                        <select className="input border border-[#218171]" id="productType" name="productType" defaultValue='Select type'>
+                        <select className="input border border-[#218171]" id="productType" name="productType" defaultValue={productType}>
                             <option value="Select type" disabled>Select Product type</option>
                             <option value="Smartphone">Smartphone</option>
                             <option value="iPhone">iPhone</option>
@@ -93,22 +99,22 @@ const AddProduct = () => {
                         <label className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Price</span>
                         </label>
-                        <input type="text" name="price" placeholder="Enter price" className="input border border-[#218171]" required />
+                        <input type="text" name="price" placeholder="Enter price" defaultValue={price} className="input border border-[#218171]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Rating</span>
                         </label>
-                        <input type="number" name="rating" placeholder="Enter rating" className="input border border-[#218171]" required />
+                        <input type="number" name="rating" placeholder="Enter rating" defaultValue={rating} className="input border border-[#218171]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-2xl font-semibold font-handlee">Short description</span>
                         </label>
-                        <textarea cols="50" rows="5" name="description" placeholder="Type short description" className=" textarea border border-[#218171] resize-none" required />
+                        <textarea cols="50" rows="5" name="description" placeholder="Type short description" defaultValue={description} className=" textarea border border-[#218171] resize-none" required />
                     </div>
                     <div className="form-control my-4">
-                        <button className="btn bg-[#144940] normal-case text-xl max-w-max mx-auto hover:bg-[#28685d] text-white">Add product</button>
+                        <button className="btn bg-[#144940] normal-case text-xl max-w-max mx-auto hover:bg-[#28685d] text-white">Update</button>
                     </div>
                 </form>
             </div>
@@ -117,4 +123,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default EditProduct;

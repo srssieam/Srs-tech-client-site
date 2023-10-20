@@ -12,6 +12,7 @@ import ProductDetails from "../components/Products/ProductDetails";
 import Cart from "../pages/Cart";
 import BrandProducts from "../components/brand/BrandProducts";
 import AllAddedProducts from "../pages/AllAddedProducts";
+import EditProduct from "../pages/EditProduct";
 
 
 const Router = createBrowserRouter([
@@ -69,6 +70,11 @@ const Router = createBrowserRouter([
                 path:'/allAddedProducts',
                 element:<AllAddedProducts></AllAddedProducts>,
                 loader:()=>fetch('http://127.0.0.1:9000/products')
+            },
+            {
+                path:'/editProducts/:id',
+                element:<EditProduct></EditProduct>,
+                loader:({params})=>fetch(`http://127.0.0.1:9000/products/${params.id}`) 
             }
         ]
     }

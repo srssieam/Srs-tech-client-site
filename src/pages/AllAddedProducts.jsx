@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { BiEditAlt } from 'react-icons/bi';
 import { FiEye } from 'react-icons/fi';
@@ -65,8 +65,8 @@ const AllAddedProducts = () => {
                             </div>
                             <div className="card-actions flex justify-center gap-2 lg:justify-end items-center m-5">
                                 <button onClick={()=>handleDelete(product._id)} className="btn bg-red-700 hover:bg-red-800  text-white normal-case"><RiDeleteBinLine className="text-3xl"></RiDeleteBinLine></button>
-                                <button className="btn bg-red-700 hover:bg-red-800  text-white normal-case"><BiEditAlt className="text-3xl"></BiEditAlt></button>
-                                <button className="btn bg-red-700 hover:bg-red-800  text-white normal-case"><FiEye className="text-3xl"></FiEye></button>
+                                <Link to={`/editProducts/${product._id}`}><button className="btn bg-red-700 hover:bg-red-800  text-white normal-case"><BiEditAlt className="text-3xl"></BiEditAlt></button></Link>
+                                <Link to={`/product-details/${product._id}`}><button className="btn bg-red-700 hover:bg-red-800  text-white normal-case"><FiEye className="text-3xl"></FiEye></button></Link>
                             </div>
                         </div>
                     </div>
