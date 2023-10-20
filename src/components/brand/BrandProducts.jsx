@@ -17,7 +17,7 @@ const BrandProducts = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                const findBrand = data.filter(b => b.brandName === brand)
+                const findBrand = data.filter(b => b.brandName.toLowerCase() === brand)
                 setBrandProducts(findBrand);
             })
     }, [brand])

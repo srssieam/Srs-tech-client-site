@@ -1,8 +1,20 @@
-# React + Vite
+here is the live link:- https://srsfitness.netlify.app/
+# Projects Features:-
+## 1. Friendly Interface: 
+  + Provided Navigation bar so that user can visit multiple pages.
+  + Provided nice slider banner
+  + Displayed sweet Alert with beautiful Gratitude message while login , register.
+  + User can find a certain brand product by selecting a brand
+## 2.Product Catalog:
+  + Display a wide range of products with images, rating and prices.
+  + User can Add , Edit and Delete product if he/she wish.
+## 3. User Registration and Profile:
+  + Users can create accounts and log in 
+  + User can Signin with google if he doesn't want to registration.
+## 4. Shopping Cart::
+  + Enable customers to add and remove items from their cart before making a purchase.
+## 5. Private pages:
+  + There have some private route. User can not be able to visit those pages with out Sign in
+## 6. Responsiveness:
+  + This website is responsive for small and large devises
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
