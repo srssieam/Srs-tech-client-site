@@ -1,10 +1,12 @@
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const CreateAccount = () => {
+    const [errorMessage, setErrorMessage] = useState('')
     const { createUser, userInfo } = useContext(AuthContext);
 
     const handleCreateAccount = e => {
@@ -15,6 +17,22 @@ const CreateAccount = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password);
+
+        if (!/^(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.test(password)) {
+            setErrorMessage('Your password should have at least one uppercase letter, one special character and not less then 6 character')
+            Swal.fire({
+                icon: 'error',
+                title: 'Failed to create account!',
+                text: ' try again',
+            })
+            return;
+        }
+
+        Swal.fire(
+            'Account created successfully',
+            'Thank you for being with us',
+            'success'
+          )
 
 
         createUser(email, password)
@@ -55,6 +73,9 @@ const CreateAccount = () => {
                             <span className="label-text text-2xl font-semibold font-handlee">Password</span>
                         </label>
                         <input type="password" name="password" placeholder="Enter your password" className="input border border-[#218171]" required />
+                    </div>
+                    <div className="form-control">
+                        <p className='text-red-700 text-2xl font-semibold'>{errorMessage}</p>
                     </div>
                     <div className="form-control my-4">
                         <button className="btn bg-[#144940] normal-case text-xl max-w-max mx-auto hover:bg-[#28685d] text-white">Create Account</button>
