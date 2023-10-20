@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
 import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
@@ -7,6 +7,8 @@ import Swal from "sweetalert2";
 const SignIn = () => {
     const { signInUser, googleSign } = useContext(AuthContext);
     const [signinError, setsigninError] = useState(null);
+    const location= useLocation();
+    const navigate = useNavigate()
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -25,6 +27,7 @@ const SignIn = () => {
                     'Thank you for being with us',
                     'success'
                 )
+                navigate(location?.state ? location.state : '/')
             })
             .catch(err => {
                 console.log(err)
@@ -41,6 +44,7 @@ const SignIn = () => {
         googleSign()
             .then(res => {
                 console.log(res.user)
+                navigate(location?.state ? location.state : '/')
             })
             .catch(err => {
                 console.log(err)
