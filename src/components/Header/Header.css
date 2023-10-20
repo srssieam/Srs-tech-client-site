@@ -3,7 +3,6 @@ li a{
     text-decoration: none;
 }
 li a:hover{
-    border-radius: 5px;
     color:cyan;
     text-decoration: underline;
 }

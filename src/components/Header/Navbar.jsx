@@ -3,20 +3,33 @@ import logo from '../../assets/logo.png'
 import './Header.css'
 import { FaSearch } from 'react-icons/fa';
 import { BsCart3 } from 'react-icons/bs';
+import { useContext } from 'react';
+import { AuthContext } from '../../provider/AuthProvider';
+import defaultUser from '../../assets/defaultUser.jpg';
 
 const Navbar = () => {
+
+    const { user, userSignOut } = useContext(AuthContext);
+    console.log(user)
 
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addProduct'>Add product</NavLink></li>
-        <li><NavLink to='/allAddedProducts'>All added products</NavLink></li>
+        {
+            user && <li><NavLink to='/allAddedProducts'>All added products</NavLink></li>
+        }
         <li><NavLink to='/featuredProducts'>Featured products</NavLink></li>
         <li><NavLink to='/brands'>Brands</NavLink></li>
         <li><NavLink to='/about'>About us</NavLink></li>
         <li><NavLink to='/contact'>Contact us</NavLink></li>
     </>
+
+    const handleSignOut =()=>{
+        userSignOut();
+    }
+
     return (
-        <div  className=' bg-blue-950'>
+        <div className=' bg-blue-950'>
             <div className='max-w-[1320px] mx-auto'>
                 {/* top nav */}
                 <div className="flex justify-between items-center py-4 px-4">
@@ -28,8 +41,31 @@ const Navbar = () => {
                         <button className='text-xl px-4 rounded-r-xl py-[10px] bg-[#218171] hover:bg-[#22554c] text-white border-2 border-[#218171] border-l-0'><FaSearch></FaSearch></button>
                     </div>
                     <div className="  text-white text-base font-handlee">
-                        <NavLink to='/signIn'><button className="px-1 md:px-2  border-r-2 border-r-[#218171] rounded-r-none  hover:text-cyan-300">Sign in</button></NavLink>
-                        <NavLink to='/createAccount'><button className="px-1 md:px-2  hover:text-cyan-300">Create Account</button></NavLink>
+
+                        {
+                            user ?
+                                <div className="flex items-center gap-4">
+                                    <div className="flex flex-col items-center">
+                                        {
+                                            user.photoURL ? <img src={user.photoURL} className="h-[40px] w-[40px] rounded-full" alt="" />
+                                            : <img src={defaultUser} className="h-[40px] w-[40px] rounded-full" alt="" />
+                                        }
+                                        
+                                        {
+                                            user.displayName ? <p>{user.displayName}</p> : <p>{user.email.slice(0, 8)}</p>
+                                        }
+                                    </div>
+                                    <button onClick={handleSignOut} className='hover:text-cyan-400 border-2 border-cyan-500 px-2 py-1 rounded-xl'>Sign out</button>
+                                </div>
+                                :
+                                <ul className='flex'>
+                                    <li><NavLink to='/signIn' className='border-r-2 border-r-[#218171] px-1 md:px-2  hover:text-cyan-300'>Sign in</NavLink> </li>
+                                    <li><NavLink to='/createAccount' className='px-1 md:px-2  hover:text-cyan-300'>Create account</NavLink> </li>
+                                </ul>
+                        }
+
+
+
                     </div>
                 </div>
 
