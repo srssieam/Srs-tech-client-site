@@ -1,4 +1,5 @@
-here is the live link:- https://srsfitness.netlify.app/
+### live link of Clint site:- https://srstech.netlify.app/
+### live link of Server site:- https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/
 # Projects Features:-
 ## 1. Friendly Interface: 
   + Provided Navigation bar so that user can visit multiple pages.
