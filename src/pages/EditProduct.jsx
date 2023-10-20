@@ -24,7 +24,7 @@ const EditProduct = () => {
 
 
         // send this specific data with id to the server to update
-        fetch(`http://127.0.0.1:9000/products/${_id}`, {
+        fetch(`https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products/${_id}`, {
             method: 'PUT',
             body: JSON.stringify(updateProduct),
             headers: {

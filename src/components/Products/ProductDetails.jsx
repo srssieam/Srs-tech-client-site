@@ -22,7 +22,7 @@ const ProductDetails = () => {
     const { productName, brandName, productImg, productType, price, rating, description } = productData;
 
     const handleAddToCart=()=> {
-    fetch('http://127.0.0.1:9000/cart', {
+    fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/cart', {
         method: 'POST',
         body: JSON.stringify(productData),
         headers: {

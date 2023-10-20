@@ -16,7 +16,7 @@ const AddProduct = () => {
         console.log(productName, brandName, productImg, productType, price, rating, description)
         const newProduct = { productName, brandName, productImg, productType, price, rating, description }
 
-        fetch('http://127.0.0.1:9000/products', {
+        fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products', {
             method: 'POST',
             body: JSON.stringify(newProduct),
             headers: {

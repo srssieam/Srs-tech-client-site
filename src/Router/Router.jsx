@@ -56,12 +56,12 @@ const Router = createBrowserRouter([
             {
                 path:'/product-details/:id',
                 element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader:()=>fetch('http://127.0.0.1:9000/products')
+                loader:()=>fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products')
             },
             {
                 path:'/cart',
                 element:<PrivateRoute><Cart></Cart></PrivateRoute>,
-                loader:()=>fetch('http://127.0.0.1:9000/cart')
+                loader:()=>fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/cart')
             },
             {
                 path: '/brandProduct/:brand',
@@ -70,12 +70,12 @@ const Router = createBrowserRouter([
             {
                 path:'/allAddedProducts',
                 element:<AllAddedProducts></AllAddedProducts>,
-                loader:()=>fetch('http://127.0.0.1:9000/products')
+                loader:()=>fetch('https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products')
             },
             {
                 path:'/editProducts/:id',
                 element:<EditProduct></EditProduct>,
-                loader:({params})=>fetch(`http://127.0.0.1:9000/products/${params.id}`) 
+                loader:({params})=>fetch(`https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/products/${params.id}`) 
             }
         ]
     }
