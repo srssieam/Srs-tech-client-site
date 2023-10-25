@@ -1,5 +1,7 @@
+ ### !!! Please reload the page again and again if you don't see the product section !!!
 ### live link of Clint site:- https://srstech.netlify.app/
-### live link of Server site:- https://srs-tech-server-5eckq1xjm-srs-sieams-projects.vercel.app/
+### live link of Server site domain:- https://srs-tech-server.vercel.app/products
+### live link of Server site deployment:- https://srs-tech-server-m7v241366-srs-sieams-projects.vercel.app/
 # Projects Features:-
 ## 1. Friendly Interface: 
   + Provided Navigation bar so that user can visit multiple pages.
