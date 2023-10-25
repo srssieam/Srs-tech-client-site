@@ -2,16 +2,21 @@ import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
 import { AiFillStar } from 'react-icons/ai';
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Cart = () => {
+    const {user}= useContext(AuthContext);
+    console.log(user.uid)
     const loadedProducts = useLoaderData();
-    const [product, setProduct] = useState(loadedProducts);
-    const productPrice = product.map(total => parseFloat(total.price));
-    const total = productPrice.reduce((preValue, currentValue) => preValue + currentValue, 0);
-    console.log(productPrice);
-    console.log(total)
-    console.log(loadedProducts)
+    const usersProducts = loadedProducts?.filter(cartProduct => cartProduct.userID === user.uid) // now get those products which have this uid
+    console.log(usersProducts)
+    const [product, setProduct] = useState(usersProducts);
+    // const productPrice = product.map(total => parseFloat(total.price));
+    // const total = productPrice.reduce((preValue, currentValue) => preValue + currentValue, 0);
+    // console.log(productPrice);
+    // console.log(total)
+    // console.log(loadedProducts)
 
 
     const handleDelete = _id => {
@@ -39,7 +44,7 @@ const Cart = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            const remaining = loadedProducts.filter(p => p._id !== _id);
+                            const remaining = usersProducts.filter(p => p._id !== _id);
                             console.log(remaining);
                             setProduct(remaining);
                         }

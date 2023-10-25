@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Rating from "react-rating";
 import { AiFillStar } from 'react-icons/ai';
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 
 const ProductDetails = () => {
+    const {user}= useContext(AuthContext);
     const { id } = useParams();
     console.log(id);
     const loadedData = useLoaderData();
@@ -17,9 +19,12 @@ const ProductDetails = () => {
         const findProductData = loadedData?.find(product => product?._id === id);
         setProductData(findProductData)
     }, [id, loadedData])
-    console.log(productData)
+
+    productData.userID= user.uid // added userID property in productData object
+    console.log(productData);
 
     const { productName, brandName, productImg, productType, price, rating, description } = productData;
+   
 
     const handleAddToCart=()=> {
     fetch('https://srs-tech-server.vercel.app/cart', {
