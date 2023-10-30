@@ -52,7 +52,7 @@ const CreateAccount = () => {
                 <form onSubmit={handleCreateAccount} className="md:w-3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-2xl font-semibold font-handlee">Your name</span>
+                            <span className="label-text text-2xl font-semibold font-handlee">Your name*</span>
                         </label>
                         <input type="text" name="name" placeholder="Enter your name" className="input border border-[#218171]" required />
                     </div>
@@ -64,13 +64,13 @@ const CreateAccount = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-2xl font-semibold font-handlee">Email</span>
+                            <span className="label-text text-2xl font-semibold font-handlee">Email*</span>
                         </label>
                         <input type="email" name="email" placeholder="Enter your email" className="input border border-[#218171]" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-2xl font-semibold font-handlee">Password</span>
+                            <span className="label-text text-2xl font-semibold font-handlee">Password*</span>
                         </label>
                         <input type="password" name="password" placeholder="Enter your password" className="input border border-[#218171]" required />
                     </div>

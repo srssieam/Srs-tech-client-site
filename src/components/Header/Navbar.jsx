@@ -64,12 +64,12 @@ const Navbar = () => {
                                 <div className="flex items-center gap-4">
                                     <div className="flex flex-col items-center">
                                         {
-                                            user.photoURL ? <img src={user.photoURL} className="h-[40px] w-[40px] rounded-full" alt="" />
+                                            user.photoURL ? <img src={user.photoURL} className="h-[40px] w-[40px] rounded-full object-cover" alt="" />
                                                 : <img src={defaultUser} className="h-[40px] w-[40px] rounded-full" alt="" />
                                         }
 
                                         {
-                                            user.displayName ? <p>{user.displayName}</p> : <p>{user.email.slice(0, 8)}</p>
+                                            user.displayName && <p>{user.displayName}</p> //: <p>{user.email.slice(0, 8)}</p>
                                         }
                                     </div>
                                     <button onClick={handleSignOut} className='hover:text-cyan-400 border-2 border-cyan-500 px-2 py-1 rounded-xl'>Sign out</button>

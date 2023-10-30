@@ -37,7 +37,7 @@ const AllAddedProducts = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            const remaining = loadedProducts.filter(p => p._id !== _id);
+                            const remaining = product.filter(p => p._id !== _id);
                             console.log(remaining);
                             setProduct(remaining);
                         }

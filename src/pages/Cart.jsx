@@ -20,7 +20,7 @@ const Cart = () => {
 
 
     const handleDelete = _id => {
-        console.log(typeof _id);
+        // console.log(typeof _id);
 
         Swal.fire({
             title: 'Are you sure?',
@@ -44,7 +44,7 @@ const Cart = () => {
                                 'Your file has been deleted.',
                                 'success'
                             )
-                            const remaining = usersProducts.filter(p => p._id !== _id);
+                            const remaining = product.filter(p => p._id !== _id);
                             console.log(remaining);
                             setProduct(remaining);
                         }
