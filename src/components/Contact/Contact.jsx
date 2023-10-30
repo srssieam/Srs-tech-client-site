@@ -2,13 +2,29 @@ import { SiFacebook } from 'react-icons/si';
 import { BsYoutube } from 'react-icons/bs';
 import { FaXTwitter, FaInstagram } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
+    const handleSubmit = e =>{
+        e.preventDefault();
+        const form = e.target
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const comment = form.comment.value;
+        console.log(name, email, phone, comment)
+        Swal.fire(
+            'Your message has been sent.',
+            'Thank you for being with us',
+            'success'
+        )
+        form.reset()
+    }
     return (
         <div className="md:my-11 lg:my-16 p-4 md:p-10 lg:p-0 max-w-[1320px] mx-auto">
             <h1 className="text-5xl font-handlee font-semibold ">Contact Us</h1>
             <div className="grid md:grid-cols-2 md:gap-10 lg:gap-16">
-                <form className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid lg:grid-cols-2 gap-5">
                         <div className="space-y-3">
                             <label htmlFor="name" className="text-xl">Name</label><br />

@@ -4,6 +4,7 @@ import Slider3 from '../../assets/slider-3.jpg'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css"
+import { Link } from 'react-router-dom';
 const Banner = () => {
 
     const settings = {
@@ -31,7 +32,7 @@ const Banner = () => {
                             </div>
                         </div>
                         <div className='flex-1 text-center'>
-                            <button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button>
+                            <Link to='/featuredProducts'><button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button></Link>
                         </div>
                     </div>
                 </div>
@@ -47,7 +48,7 @@ const Banner = () => {
                             </div>
                         </div>
                         <div className='flex-1 text-center'>
-                            <button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button>
+                        <Link to='/featuredProducts'><button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button></Link>
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,7 @@ const Banner = () => {
                             </div>
                         </div>
                         <div className='flex-1 text-center'>
-                            <button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button>
+                        <Link to='/featuredProducts'><button className='px-5 py-3 bg-[#0000006c] text-white text-2xl font-bold font-handlee transition rounded-md hover:scale-125 bg-blend-luminosity'>Shop Now</button></Link>
                         </div>
                     </div>
                 </div>
